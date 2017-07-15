@@ -11,7 +11,11 @@ const router = require('./router');
 
 
 // Database Connection
-mongoose.connect(config.database);  
+// mongoose.connect(config.database);  
+
+app.get('/', (req, res) => {
+  res.send('HEY!')
+})
 
 // Setting up basic middleware for all Express requests
 app.use(logger('dev')); // Log requests to API using morgan
