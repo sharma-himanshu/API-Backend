@@ -14,7 +14,7 @@ const router = require('./router');
 // mongoose.connect(config.database);  
 
 app.get('/', (req, res) => {
-  res.send('HEY!')
+  res.render('Hey', { title: 'My Super API' });
 })
 
 // Setting up basic middleware for all Express requests
