@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
   res.send('Hey');
 })
 
-socketEvents(io);
+//socketEvents(io);
 
 // Set static file location for production
 // app.use(express.static(__dirname + '/public'));
