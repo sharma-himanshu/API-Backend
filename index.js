@@ -22,7 +22,7 @@ if (process.env.NODE_ENV != config.test_env) {
 }
 
 
-const io = require('socket.io').listen(server);
+//const io = require('socket.io').listen(server);
 
 app.get('/', (req, res) => {
   res.send('Hey');
