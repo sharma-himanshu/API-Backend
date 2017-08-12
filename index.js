@@ -11,10 +11,10 @@ const router = require('./router');
 
 
 // Database Connection
-// mongoose.connect(config.database);  
+mongoose.connect(config.database);  
 
 app.get('/', (req, res) => {
-  res.render('Hey', { title: 'My Super API' });
+  res.send('Hey');
 })
 
 // Setting up basic middleware for all Express requests
