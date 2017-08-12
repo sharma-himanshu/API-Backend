@@ -3,7 +3,7 @@ const crypto = require('crypto');
 const User = require('../models/user');
 // const mailgun = require('../config/mailgun');
 // const mailchimp = require('../config/mailchimp');
-// const setUserInfo = require('../helpers').setUserInfo;
+const setUserInfo = require('../helpers').setUserInfo;
 const config = require('../config/main');
 
 // Generate JWT
@@ -14,9 +14,9 @@ function generateToken(user) {
   });
 }
 
-//========================================
+//=============
 // Login Route
-//========================================
+//=============
 exports.login = function (req, res, next) {
   const userInfo = setUserInfo(req.user);
 
@@ -27,11 +27,12 @@ exports.login = function (req, res, next) {
 };
 
 
-//========================================
+//====================
 // Registration Route
-//========================================
+//====================
 exports.register = function (req, res, next) {
   // Check for registration errors
+  console.log("I get here to registration")
   const email = req.body.email;
   const firstName = req.body.firstName;
   const lastName = req.body.lastName;
@@ -85,9 +86,9 @@ exports.register = function (req, res, next) {
   });
 };
 
-//========================================
+//==========================
 // Authorization Middleware
-//========================================
+//==========================
 
 // Role authorization check
 exports.roleAuthorization = function (requiredRole) {

@@ -13,21 +13,12 @@ const express = require('express'),
 mongoose.connect(config.database);
 
 // Start the server
-const server;
-if (process.env.NODE_ENV != config.test_env) {
-  server = app.listen(config.port);
-  console.log(`Your server is running on port ${config.port}.`);
-} else{
-  server = app.listen(config.test_port);
-}
+
+const server = app.listen(config.port);
+console.log(`Your server is running on port ${config.port}.`);
 
 
 //const io = require('socket.io').listen(server);
-
-app.get('/', (req, res) => {
-  res.send('Hey');
-})
-
 //socketEvents(io);
 
 // Set static file location for production
