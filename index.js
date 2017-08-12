@@ -6,7 +6,7 @@ const express = require('express'),
   logger = require('morgan'),
   router = require('./router'),
   mongoose = require('mongoose'),
-  socketEvents = require('./socketEvents'),
+//  socketEvents = require('./socketEvents'),
   config = require('./config/main');
 
 // Database Setup
