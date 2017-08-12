@@ -18,16 +18,24 @@ const UserSchema = new Schema({
     required: true
   },
   profile: {
-    firstName: { type: String },
-    lastName: { type: String }
+    firstName: { 
+      type: String 
+    },
+    lastName: { 
+      type: String 
+    }
   },
   role: {
     type: String,
-    enum: ['Member', 'Client', 'Owner', 'Admin'],
+    enum: ['Member', 'Business', 'Owner', 'Admin'],
     default: 'Member'
   },
-  resetPasswordToken: { type: String },
-  resetPasswordExpires: { type: Date }
+  resetPasswordToken: { 
+    type: String 
+  },
+  resetPasswordExpires: { 
+    type: Date 
+  }
 },
 {
   timestamps: true
@@ -42,10 +50,14 @@ UserSchema.pre('save', function(next) {
   if (!user.isModified('password')) return next();
 
   bcrypt.genSalt(SALT_FACTOR, function(err, salt) {
-    if (err) return next(err);
+    if (err) {
+      return next(err);
+    }
 
     bcrypt.hash(user.password, salt, null, function(err, hash) {
-      if (err) return next(err);
+      if (err) {
+        return next(err);
+      }
       user.password = hash;
       next();
     });
