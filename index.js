@@ -13,7 +13,7 @@ const express = require('express'),
 mongoose.connect(config.database);
 
 // Start the server
-let server;
+const server;
 if (process.env.NODE_ENV != config.test_env) {
   server = app.listen(config.port);
   console.log(`Your server is running on port ${config.port}.`);
